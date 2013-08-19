@@ -1,0 +1,32 @@
+inherit qt5-qmake
+
+NAME="qt5-webkit-examples"
+VERSION=5.1.0
+RELEASE=1
+CATEGORY="X11"
+SUMMARY="Qt C++ application framework (WebKit examples)"
+DESCRIPTION="Qt is a cross-platform application framework for desktop and
+embedded development. Qt enables programmers to create advanced GUI
+applications once and deploy them to Windows, Mac OS X and Linux without
+rewriting the source code. Companies using Qt can leverage software
+investments made on one platform across many others."
+HOMEPAGE="http://qt-project.org/"
+SRC_URI="http://download.qt-project.org/official_releases/qt/${VERSION%.*}/${VERSION}/submodules/qtwebkit-examples-opensource-src-${VERSION}.tar.xz"
+SRC_DIR="qtwebkit-examples-opensource-src-${VERSION}"
+
+PKG_NAMES="${NAME} ${NAME}-doc"
+qt5_webkit_examples_CONTENTS="usr/lib/qt5/examples/webkit*/"
+qt5_webkit_examples_doc_CATEGORY="Doc"
+qt5_webkit_examples_doc_CONTENTS="usr/share/qt5/doc/qtwebkitexamples*"
+
+src_compile() {
+	cd ${B}
+	cygqmake5 ${S}
+	cygmake
+	cygmake docs
+}
+
+src_install() {
+	cd ${B}
+	qt5_qmake_install install_docs
+}
