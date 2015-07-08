@@ -1,8 +1,8 @@
 inherit qt5-qmake
 
 NAME="qt5-webkit-examples"
-VERSION=5.4.1
-RELEASE=2
+VERSION=5.4.2
+RELEASE=1
 CATEGORY="X11"
 SUMMARY="Qt C++ application framework (WebKit examples)"
 DESCRIPTION="Qt is a cross-platform application framework for desktop and
