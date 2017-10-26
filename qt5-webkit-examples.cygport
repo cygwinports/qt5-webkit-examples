@@ -1,7 +1,7 @@
 inherit qt5-qmake
 
 NAME="qt5-webkit-examples"
-VERSION=5.6.2
+VERSION=5.9.2
 RELEASE=1
 CATEGORY="X11"
 SUMMARY="Qt C++ application framework (WebKit examples)"
@@ -11,8 +11,9 @@ applications once and deploy them to Windows, Mac OS X and Linux without
 rewriting the source code. Companies using Qt can leverage software
 investments made on one platform across many others."
 HOMEPAGE="https://www.qt.io/"
-SRC_URI="http://download.qt.io/snapshots/qt/${VERSION%.*}/${VERSION}/latest_src/submodules/qtwebkit-examples-opensource-src-${VERSION}.tar.xz"
-SRC_DIR="qtwebkit-examples-opensource-src-${VERSION}"
+commit=a24c780b60d7d8bc00c4a48042cf7f32db777d55
+SRC_URI="https://github.com/qt/qtwebkit-examples/archive/${commit}/qtwebkit-examples-${commit}.tar.gz"
+SRC_DIR="qtwebkit-examples-${commit}"
 
 PKG_NAMES="${NAME} ${NAME}-doc"
 qt5_webkit_examples_CONTENTS="
